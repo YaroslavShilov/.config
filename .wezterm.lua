@@ -4,8 +4,9 @@ local wezterm = require('wezterm')
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.default_prog = { 'pwsh.exe', '-NoLogo' }
-config.default_cwd = '/Desktop'
+--config.default_prog = { 'pwsh.exe', '-NoLogo' }
+config.default_prog = { "C:/Users/user/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe", '-NoLogo' }
+--config.default_cwd = '/Desktop'
 
 
 -- Font
