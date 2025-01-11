@@ -1,0 +1,130 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" NerdTree"
+Plug 'preservim/nerdtree'
+
+" Do incremental searching.
+set incsearch
+
+" Show line Numbers from your cursor
+set relativenumber
+set number
+set surround (vim)
+
+Plug 'terryma/vim-multiple-cursors'
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+
+"easy motion plugin
+"Plug 'easymotion/vim-easymotion'
+"ctrl + ; + findName"
+set easymotion
+
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" ---- Mapping ---
+"i - insert mode
+"n - normal mode
+" jj - get out of insert mode
+" inoremap jj <Esc>
+
+" -- page 1/2 up / down using alt + u / d
+nnoremap <a-d> <c-d>
+nnoremap <a-u> <c-u>
+vmap <a-d> 10j
+vmap <a-u> 10k
+
+
+" -- swtich between windows
+nnoremap <a-w> <c-w>
+
+" add tabs and remove tabs by <tab> and <shift + tab>
+vnoremap <tab> >gv
+nnoremap <tab> >>
+
+" -- Code Edit
+map <space>rn <Action>(RenameElement)
+
+" -- Go to
+map gd <Action>(GotoDeclaration)
+map gD <Action>(GotoTypeDeclaration)
+map gi <Action>(GotoImplementation)
+map gb <Action>(Back)
+map gf <Action>(Forward)
+
+
+" --- Search
+map <space>sf <Action>(GotoFile)
+map <space>sa <Action>(GotoAction)
+map <space>se <Action>(SearchEverywhere)
+
+
+" --- Quick Info
+map qc <Action>(EditorContextInfo)
+map qe <Action>(ShowErrorDescription)
+map qd <Action>(QuickJavaDoc)
+map qp <Action>(ParameterInfo)
+
+" -- todo window
+map <space>to <Action>(ActivateTODOToolWindow)
+
+"-- configure keymaps
+map <space>km <Action>(ChangeKeymap)
+
+
+" -- OLD
+"map <left> <Action>(StretchSplitToLeft)
+"map <right> <Action>(StretchSplitToRight)
+"map <up> <Action>(StretchSplitToUp)
+
+" navigation between tabs
+" nnoremap [b :tabprev<CR>
+" nnoremap ]b :tabnext<CR>
+" nnoremap <c-h> :action PreviousTab<CR>
+" nnoremap <c-l> :action NextTab<CR>
+
+
+" -- IDE CHANGED SHORTCUTS -- "
+" Alt+n = File Open Actions > New > File
+" Alt+d = File > File Open Actions > New > Create new directory or package
+" Alt+l = Editor Tabs > Select Next Tab
+" Alt+h = Editor Tabs > Select Previous Tab
+" Alt+; = Window > Active Tool Window > Hide All Tool Windows
+" Alt+x = (like ctrl+f4) Main Menu > Window > Editor Tabs > Editor Close Actions > Close Tab
+" Alt+x = (like ctrl+f4) Plugins > Images > Close Thumbnails (inherited from Close Tab)
+" Alt+x = (like ctrl+f4) Plugins > Terminal > Close Tab (inherited from Close Tab)
+" Alt+x = (like ctrl+f4) Other > Images > Close Thumbnails (inherited from Close Tab)
+" Alt+c = Other > Show Context Menu
+" Alt+page up = Editor Tabs > Stretch Editor to Top
+" Alt+page down = Editor Tabs > Stretch Editor to Bottom
+" Alt+left = Editor Tabs > Stretch Editor to Left
+" Alt+right = Editor Tabs > Stretch Editor to Right
+
+" -- SHORTCUTS used by VIM instead of IDEA -- "
+" go ideavim > settings and change these shortcuts' handler from IDE to VIM
+" Ctrl+;
+" Ctrl+Shift+;
+" Alt+D
+" Other shortcuts handled by IDE instead of VIM

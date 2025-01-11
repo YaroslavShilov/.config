@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!.ideavimrc
+!.wezterm.lua
+!ohmyposh/myTheme.omp.json
+
+# ...even if they are in subdirectories
+#!*/
