@@ -1,3 +1,6 @@
+"" let mapleader = " " -- Don't know what is it. I'll check it later
+
+
 "" Source your .vimrc
 "source ~/.vimrc
 
@@ -14,10 +17,7 @@
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+set scrolloff=10 " Minimal number of lines above and below the cursor
 
 " NerdTree"
 Plug 'preservim/nerdtree'
@@ -25,19 +25,21 @@ Plug 'preservim/nerdtree'
 " Do incremental searching.
 set incsearch
 
-" Show line Numbers from your cursor
-set relativenumber
+" Show numbers and relative numbers from your cursor
 set number
-set surround (vim)
+set relativenumber
 
+set surround (vim) " work with brackets
+
+" Multiple Cursors
 Plug 'terryma/vim-multiple-cursors'
-map mc <A-n>
-map mx <A-x>
-map mp <A-p>
+map mc <A-n> "take
+map mx <A-x> "skip
+map mp <A-p> "prev
 
-"easy motion plugin
-"Plug 'easymotion/vim-easymotion'
-"ctrl + ; + findName"
+" Easy motion plugin
+" Plug 'easymotion/vim-easymotion'
+" ctrl + ; + findName"
 set easymotion
 
 
@@ -57,7 +59,7 @@ vmap <a-d> 10j
 vmap <a-u> 10k
 
 
-" -- swtich between windows
+" -- switch between windows
 nnoremap <a-w> <c-w>
 
 " add tabs and remove tabs by <tab> and <shift + tab>
@@ -93,38 +95,7 @@ map <space>to <Action>(ActivateTODOToolWindow)
 "-- configure keymaps
 map <space>km <Action>(ChangeKeymap)
 
-
-" -- OLD
-"map <left> <Action>(StretchSplitToLeft)
-"map <right> <Action>(StretchSplitToRight)
-"map <up> <Action>(StretchSplitToUp)
-
-" navigation between tabs
-" nnoremap [b :tabprev<CR>
-" nnoremap ]b :tabnext<CR>
-" nnoremap <c-h> :action PreviousTab<CR>
-" nnoremap <c-l> :action NextTab<CR>
-
-
-" -- IDE CHANGED SHORTCUTS -- "
-" Alt+n = File Open Actions > New > File
-" Alt+d = File > File Open Actions > New > Create new directory or package
-" Alt+l = Editor Tabs > Select Next Tab
-" Alt+h = Editor Tabs > Select Previous Tab
-" Alt+; = Window > Active Tool Window > Hide All Tool Windows
-" Alt+x = (like ctrl+f4) Main Menu > Window > Editor Tabs > Editor Close Actions > Close Tab
-" Alt+x = (like ctrl+f4) Plugins > Images > Close Thumbnails (inherited from Close Tab)
-" Alt+x = (like ctrl+f4) Plugins > Terminal > Close Tab (inherited from Close Tab)
-" Alt+x = (like ctrl+f4) Other > Images > Close Thumbnails (inherited from Close Tab)
-" Alt+c = Other > Show Context Menu
-" Alt+page up = Editor Tabs > Stretch Editor to Top
-" Alt+page down = Editor Tabs > Stretch Editor to Bottom
-" Alt+left = Editor Tabs > Stretch Editor to Left
-" Alt+right = Editor Tabs > Stretch Editor to Right
-
 " -- SHORTCUTS used by VIM instead of IDEA -- "
-" go ideavim > settings and change these shortcuts' handler from IDE to VIM
 " Ctrl+;
 " Ctrl+Shift+;
 " Alt+D
-" Other shortcuts handled by IDE instead of VIM

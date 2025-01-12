@@ -5,7 +5,8 @@ local wezterm = require('wezterm')
 local config = wezterm.config_builder()
 
 --config.default_prog = { 'pwsh.exe', '-NoLogo' }
-config.default_prog = { "C:/Users/user/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe", '-NoLogo' }
+config.default_prog = { "C:/Users/user/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe",
+                        '-NoLogo' }
 --config.default_cwd = '/Desktop'
 
 
@@ -23,7 +24,7 @@ config.colors = {
 --config.default_cursor_style = 'BlinkingBar',
 
 -- Appearance
-config.enable_tab_bar = false -- hide tabs
+config.enable_tab_bar = false        -- hide tabs
 config.window_decorations = 'RESIZE' -- disable the title bar but enable the resizable border
 -- 'RESIZE' = use ctrl + shift for moving the window
 config.window_padding = {
@@ -59,7 +60,7 @@ config.background = {
 }
 
 -- Miscellaneous
-config.max_fps = 75
+config.max_fps = 90
 config.prefer_egl = true -- default is true
 
 -- Scheme
@@ -76,3 +77,4 @@ config.automatically_reload_config = true
 
 -- and finally, return the configuration to wezterm
 return config
+
