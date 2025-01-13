@@ -37,10 +37,11 @@ let g:WhichKey_ShowVimActions = "false"
 
 
 " Multiple Cursors
-Plug 'terryma/vim-multiple-cursors'
-map mc <A-n> "take
-map mx <A-x> "skip
-map mp <A-p> "prev
+"Plug 'terryma/vim-multiple-cursors'
+"nmap mc <A-n> "take " alt + j
+"nmap mx <A-x> "skip " alt + x
+"nmap mp <A-p> "prev " alt + p
+"nmap ???? "all " ctrl + shift + alt + j
 
 " Easy motion plugin
 " Plug 'easymotion/vim-easymotion'
@@ -71,37 +72,42 @@ vnoremap <tab> >gv
 nnoremap <tab> >>
 
 " -- Code Edit
-map <space>rn <Action>(RenameElement)
+nmap <space>rn <Action>(RenameElement)
 
 " -- Go to
-map gd <Action>(GotoDeclaration)
-map gD <Action>(GotoTypeDeclaration)
-map gi <Action>(GotoImplementation)
-map gb <Action>(Back)
-map gf <Action>(Forward)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
 
 " -- Error
-map <space>e <Action>(GotoNextError)
-map <space>E <Action>(GotoPreviousError)
+nmap <space>e <Action>(GotoNextError)
+nmap <space>E <Action>(GotoPreviousError)
 
 
 " --- Search
-map <space>sf <Action>(GotoFile)
-map <space>sa <Action>(GotoAction)
-map <space>se <Action>(SearchEverywhere)
+nmap <space>sf <Action>(GotoFile)
+nmap <space>sa <Action>(GotoAction)
+nmap <space>se <Action>(SearchEverywhere)
+
+" -- Move Tabs
+nmap <space>mo <Action>(MoveEditorToOppositeTabGroup)
+nmap <space>ml :tabm-1 <CR>
+nmap <space>mr :tabm+1 <CR>
 
 
 " --- Quick Info
-map qc <Action>(EditorContextInfo)
-map qe <Action>(ShowErrorDescription)
-map qd <Action>(QuickJavaDoc)
-map qp <Action>(ParameterInfo)
+nmap qc <Action>(EditorContextInfo)
+nmap qe <Action>(ShowErrorDescription)
+nmap qd <Action>(QuickJavaDoc)
+nmap qp <Action>(ParameterInfo)
 
 " -- todo window
-map <space>to <Action>(ActivateTODOToolWindow)
+nmap <space>to <Action>(ActivateTODOToolWindow)
 
 "-- configure keymaps
-map <space>km <Action>(ChangeKeymap)
+nmap <space>km <Action>(ChangeKeymap)
 
 " -- SHORTCUTS used by VIM instead of IDEA -- "
 " Ctrl+;
