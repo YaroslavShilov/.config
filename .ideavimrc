@@ -17,7 +17,6 @@
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-set scrolloff=10 " Minimal number of lines above and below the cursor
 
 " NerdTree"
 Plug 'preservim/nerdtree'
@@ -30,6 +29,12 @@ set number
 set relativenumber
 
 set surround (vim) " work with brackets
+
+" Which-key
+set which-key
+set timeoutlen=100000
+let g:WhichKey_ShowVimActions = "false"
+
 
 " Multiple Cursors
 Plug 'terryma/vim-multiple-cursors'
@@ -55,9 +60,8 @@ map Q gq
 " -- page 1/2 up / down using alt + u / d
 nnoremap <a-d> <c-d>
 nnoremap <a-u> <c-u>
-vmap <a-d> 10j
-vmap <a-u> 10k
-
+set scroll=15
+set scrolloff=10 " Minimal number of lines above and below the cursor
 
 " -- switch between windows
 nnoremap <a-w> <c-w>
@@ -75,6 +79,10 @@ map gD <Action>(GotoTypeDeclaration)
 map gi <Action>(GotoImplementation)
 map gb <Action>(Back)
 map gf <Action>(Forward)
+
+" -- Error
+map <space>e <Action>(GotoNextError)
+map <space>E <Action>(GotoPreviousError)
 
 
 " --- Search
