@@ -39,9 +39,18 @@ let g:WhichKey_ShowVimActions = "false"
 " Multiple Cursors
 "Plug 'terryma/vim-multiple-cursors'
 "nmap mc <A-n> "take " alt + j
-"nmap mx <A-x> "skip " alt + x
-"nmap mp <A-p> "prev " alt + p
-"nmap ???? "all " ctrl + shift + alt + j
+nmap mc <Action>(SelectNextOccurrence)
+vmap mc <Action>(SelectNextOccurrence)
+"nmap mx <A-x> "skip " F3
+nmap mx <Action>(FindNext)
+vmap mx <Action>(FindNext)
+"nmap mp <A-p> "prev " Shift + F3
+"nmap ?? <A-p> back to selected  alt + shift + j
+nmap mp <Action>(FindPrevious)
+vmap mp <Action>(FindPrevious)
+"nmap ??? select all " shift + ctrl + alt + j
+nmap ma <Action>(SelectAllOccurrences)
+vmap ma <Action>(SelectAllOccurrences)
 
 " Easy motion plugin
 " Plug 'easymotion/vim-easymotion'
