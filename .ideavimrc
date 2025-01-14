@@ -61,8 +61,11 @@ map Q gq
 " -- page 1/2 up / down using alt + u / d
 nnoremap <a-d> <c-d>
 nnoremap <a-u> <c-u>
-set scroll=15
-set scrolloff=10 " Minimal number of lines above and below the cursor
+" -- Use it for v mode
+vmap <a-d> 15j
+vmap <a-u> 15k
+set scroll=15 "Doesn't work in v mode
+set scrolloff=10 "Minimal number of lines above and below the cursor
 
 " -- switch between windows
 nnoremap <a-w> <c-w>
@@ -72,7 +75,7 @@ vnoremap <tab> >gv
 nnoremap <tab> >>
 
 " -- Code Edit
-nmap <space>rn <Action>(RenameElement)
+" nmap <space>rn <Action>(RenameElement) Shift + F6
 
 " -- Go to
 nmap gd <Action>(GotoDeclaration)
@@ -82,8 +85,8 @@ nmap gb <Action>(Back)
 nmap gf <Action>(Forward)
 
 " -- Error
-nmap <space>e <Action>(GotoNextError)
-nmap <space>E <Action>(GotoPreviousError)
+"nmap <space>e <Action>(GotoNextError) " F2
+"nmap <space>E <Action>(GotoPreviousError) " Shift + F2
 
 
 " --- Search
@@ -95,6 +98,7 @@ nmap <space>se <Action>(SearchEverywhere)
 nmap <space>mo <Action>(MoveEditorToOppositeTabGroup)
 nmap <space>ml :tabm-1 <CR>
 nmap <space>mr :tabm+1 <CR>
+nmap <space>rc <Action>(ReopenClosedTab)
 
 
 " --- Quick Info
