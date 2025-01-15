@@ -1,4 +1,4 @@
-"" let mapleader = " " -- Don't know what is it. I'll check it later
+let mapleader = "\<space>"
 
 
 "" Source your .vimrc
@@ -31,6 +31,10 @@ set relativenumber
 set surround (vim) " work with brackets
 
 " Which-key
+" let g:WhichKeyDesc_mc = "mc Desc"
+" let g:WhichKeyDesc_ctrl_x_mc = "<C-x>mc Desc"
+"leader doesn't work
+" let g:WhichKeyDesc_leader_mc = "<leader>mc Desc"
 set which-key
 set timeoutlen=100000
 let g:WhichKey_ShowVimActions = "false"
@@ -41,26 +45,31 @@ let g:WhichKey_ShowVimActions = "false"
 
 " -- take alt + j
 "nmap mc <A-n>
+let g:WhichKeyDesc_mc = "mc Select Next Occurrence"
 nmap mc <Action>(SelectNextOccurrence)
 vmap mc <Action>(SelectNextOccurrence)
 
 " -- skip F3
 "nmap mx <A-x>
+let g:WhichKeyDesc_mx = "mx Next Occurrence"
 nmap mx <Action>(FindNext)
 vmap mx <Action>(FindNext)
 
 " -- prev unselected Shift + F3
 "nmap ???
+let g:WhichKeyDesc_mu = "mu Previous Unselected Occurrence"
 nmap mu <Action>(FindPrevious)
 vmap mu <Action>(FindPrevious)
 
 " -- prev selected  alt + shift + j
 "nmap mp <A-p>
+let g:WhichKeyDesc_ms = "ms Previous Selected Occurrence"
 nmap ms <Action>(UnselectPreviousOccurrence)
 vmap ms <Action>(UnselectPreviousOccurrence)
 
 " -- select all " shift + ctrl + alt + j
 "nmap ???
+let g:WhichKeyDesc_ma = "ma Select All Occurrences"
 nmap ma <Action>(SelectAllOccurrences)
 vmap ma <Action>(SelectAllOccurrences)
 
@@ -96,43 +105,74 @@ vnoremap <tab> >gv
 nnoremap <tab> >>
 
 " -- Code Edit
-" nmap <space>rn <Action>(RenameElement) Shift + F6
+" nmap <leader>rn <Action>(RenameElement) Shift + F6
 
 " -- Go to
+let g:WhichKeyDesc_gd = "gd Go to Declaration"
 nmap gd <Action>(GotoDeclaration)
+
+let g:WhichKeyDesc_gD = "gD Go to Type Declaration"
 nmap gD <Action>(GotoTypeDeclaration)
+
+let g:WhichKeyDesc_gi = "gi Go to Implementation"
 nmap gi <Action>(GotoImplementation)
+
+let g:WhichKeyDesc_gb = "gb Go Back"
 nmap gb <Action>(Back)
+
+let g:WhichKeyDesc_gf = "gf Go Forward"
 nmap gf <Action>(Forward)
 
 " -- Error
-"nmap <space>e <Action>(GotoNextError) " F2
-"nmap <space>E <Action>(GotoPreviousError) " Shift + F2
+"nmap <leader>e <Action>(GotoNextError) " F2
+"nmap <leader>E <Action>(GotoPreviousError) " Shift + F2
 
 
 " --- Search
-nmap <space>sf <Action>(GotoFile)
-nmap <space>sa <Action>(GotoAction)
-nmap <space>se <Action>(SearchEverywhere)
+"let g:WhichKeyDesc_leader_sf = "sf Search File"
+nmap <leader>sf <Action>(GotoFile)
+
+"let g:WhichKeyDesc_leader_sa = "sa Search Action"
+nmap <leader>sa <Action>(GotoAction)
+
+"let g:WhichKeyDesc_leader_se = "se Search Everywhere"
+nmap <leader>se <Action>(SearchEverywhere)
 
 " -- Move Tabs
-nmap <space>mo <Action>(MoveEditorToOppositeTabGroup)
-nmap <space>ml :tabm-1 <CR>
-nmap <space>mr :tabm+1 <CR>
-nmap <space>rc <Action>(ReopenClosedTab)
+let g:WhichKeyDesc_mo = "mo Move Tab Opposite Group"
+nmap <leader>mo <Action>(MoveEditorToOppositeTabGroup)
+
+let g:WhichKeyDesc_ml = "ml Move Tab Left"
+nmap <leader>ml :tabm-1 <CR>
+
+
+let g:WhichKeyDesc_mr = "mr Move Tab Right"
+nmap <leader>mr :tabm+1 <CR>
+
+"let g:WhichKeyDesc_leader_rc = "<leader>rc Reopen Closed Tab"
+nmap <leader>rc <Action>(ReopenClosedTab)
 
 
 " --- Quick Info
+let g:WhichKeyDesc_qc = "qc Context Info"
 nmap qc <Action>(EditorContextInfo)
+
+let g:WhichKeyDesc_qe = "qe Error Description"
 nmap qe <Action>(ShowErrorDescription)
+
+let g:WhichKeyDesc_qd = "qd Documentation"
 nmap qd <Action>(QuickJavaDoc)
+
+let g:WhichKeyDesc_qp = "qp Parameter Info"
 nmap qp <Action>(ParameterInfo)
 
 " -- todo window
-nmap <space>to <Action>(ActivateTODOToolWindow)
+"let g:WhichKeyDesc_leader_to = "to TODO Window"
+nmap <leader>to <Action>(ActivateTODOToolWindow)
 
 "-- configure keymaps
-nmap <space>km <Action>(ChangeKeymap)
+"let g:WhichKeyDesc_leader_km = "km Change Keymap Window"
+nmap <leader>km <Action>(ChangeKeymap)
 
 " -- SHORTCUTS used by VIM instead of IDEA -- "
 " Ctrl+;
