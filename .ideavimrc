@@ -38,17 +38,29 @@ let g:WhichKey_ShowVimActions = "false"
 
 " Multiple Cursors
 "Plug 'terryma/vim-multiple-cursors'
-"nmap mc <A-n> "take " alt + j
+
+" -- take alt + j
+"nmap mc <A-n>
 nmap mc <Action>(SelectNextOccurrence)
 vmap mc <Action>(SelectNextOccurrence)
-"nmap mx <A-x> "skip " F3
+
+" -- skip F3
+"nmap mx <A-x>
 nmap mx <Action>(FindNext)
 vmap mx <Action>(FindNext)
-"nmap mp <A-p> "prev " Shift + F3
-"nmap ?? <A-p> back to selected  alt + shift + j
-nmap mp <Action>(FindPrevious)
-vmap mp <Action>(FindPrevious)
-"nmap ??? select all " shift + ctrl + alt + j
+
+" -- prev unselected Shift + F3
+"nmap ???
+nmap mu <Action>(FindPrevious)
+vmap mu <Action>(FindPrevious)
+
+" -- prev selected  alt + shift + j
+"nmap mp <A-p>
+nmap ms <Action>(UnselectPreviousOccurrence)
+vmap ms <Action>(UnselectPreviousOccurrence)
+
+" -- select all " shift + ctrl + alt + j
+"nmap ???
 nmap ma <Action>(SelectAllOccurrences)
 vmap ma <Action>(SelectAllOccurrences)
 
