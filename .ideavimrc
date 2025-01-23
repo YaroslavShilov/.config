@@ -1,5 +1,6 @@
 let mapleader = "\<space>"
 
+":noh - stop the highlighting
 
 "" Source your .vimrc
 "source ~/.vimrc
@@ -40,32 +41,38 @@ set timeoutlen=100000
 let g:WhichKey_ShowVimActions = "false"
 
 
+
 " Multiple Cursors
-"Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " -- take alt + j
 "nmap mc <A-n>
 let g:WhichKeyDesc_mc = "mc Select Next Occurrence"
-nmap mc <Action>(SelectNextOccurrence)
-vmap mc <Action>(SelectNextOccurrence)
+"nmap mc <Action>(SelectNextOccurrence) //doesn't go to the beginning of the document
+"vmap mc <Action>(SelectNextOccurrence)
+nmap mc <Plug>NextWholeOccurrence
+xmap mc <Plug>NextWholeOccurrence
+
 
 " -- skip F3
 "nmap mx <A-x>
 let g:WhichKeyDesc_mx = "mx Next Occurrence"
-nmap mx <Action>(FindNext)
-vmap mx <Action>(FindNext)
+"nmap mx <Action>(FindNext)
+"vmap mx <Action>(FindNext)
+xmap mx <Plug>SkipOccurrence
 
 " -- prev unselected Shift + F3
 "nmap ???
-let g:WhichKeyDesc_mu = "mu Previous Unselected Occurrence"
-nmap mu <Action>(FindPrevious)
-vmap mu <Action>(FindPrevious)
+"let g:WhichKeyDesc_mu = "mu Previous Unselected Occurrence"
+"nmap mu <Action>(FindPrevious)
+"vmap mu <Action>(FindPrevious)
 
 " -- prev selected  alt + shift + j
 "nmap mp <A-p>
-let g:WhichKeyDesc_ms = "ms Previous Selected Occurrence"
-nmap ms <Action>(UnselectPreviousOccurrence)
-vmap ms <Action>(UnselectPreviousOccurrence)
+let g:WhichKeyDesc_mp = "mp Previous Selected Occurrence"
+"nmap mp <Action>(UnselectPreviousOccurrence)
+"vmap mp <Action>(UnselectPreviousOccurrence)
+xmap mp <Plug>RemoveOccurrence
 
 " -- select all " shift + ctrl + alt + j
 "nmap ???
@@ -92,8 +99,8 @@ map Q gq
 nnoremap <a-d> <c-d>
 nnoremap <a-u> <c-u>
 " -- Use it for v mode
-vmap <a-d> 15j
-vmap <a-u> 15k
+vmap <a-d> 10j
+vmap <a-u> 10k
 set scroll=15 "Doesn't work in v mode
 set scrolloff=10 "Minimal number of lines above and below the cursor
 
