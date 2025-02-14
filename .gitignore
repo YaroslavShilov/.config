@@ -6,6 +6,7 @@
 !.ideavimrc
 !.wezterm.lua
 !ohmyposh/myTheme.omp.json
+!neovim.ico
 
 # ...even if they are in subdirectories
 #!*/
