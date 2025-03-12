@@ -39,7 +39,7 @@ config.window_padding = {
 config.background = {
     {
         source = {
-            File = 'C:/Users/user/Desktop/Others/wallpapers/wallpapers/dune.jpg'
+            File = 'C:/Users/User/_Desk/Others/wallpapers/wallpapers/black&white/1.jpg'
         },
         hsb = {
             hue = 1.0,
@@ -55,7 +55,7 @@ config.background = {
         },
         width = '100%',
         height = '100%',
-        opacity = 0.8
+--         opacity = 0.8
     }
 }
 

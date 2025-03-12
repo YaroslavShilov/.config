@@ -95,6 +95,12 @@ map Q gq
 " jj - get out of insert mode
 " inoremap jj <Esc>
 
+" -- Save cursor position before entering visual mode
+nnoremap v m`v
+vnoremap v m`v
+nnoremap V m`V
+vnoremap V m`V
+
 " -- page 1/2 up / down using alt + u / d
 nnoremap <a-d> <c-d>
 nnoremap <a-u> <c-u>
