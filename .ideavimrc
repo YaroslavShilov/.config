@@ -143,17 +143,17 @@ nmap gf <Action>(Forward)
 
 
 " --- Search
-"let g:WhichKeyDesc_leader_sf = "ff Search File"
-nmap <leader>ff <Action>(GotoFile)
+"let g:WhichKeyDesc_leader_sf = "sf Search File"
+nmap <leader>sf <Action>(GotoFile)
 
-"let g:WhichKeyDesc_leader_sa = "fg Live grep"
-nmap <leader>fg <Action>(FindInPath)
+"let g:WhichKeyDesc_leader_sa = "sg Live grep"
+nmap <leader>sg <Action>(FindInPath)
 
-"let g:WhichKeyDesc_leader_sa = "fa Search Action"
-nmap <leader>fa <Action>(GotoAction)
+"let g:WhichKeyDesc_leader_sa = "sa Search Action"
+nmap <leader>sa <Action>(GotoAction)
 
-"let g:WhichKeyDesc_leader_se = "fe Search Everywhere"
-nmap <leader>fe <Action>(SearchEverywhere)
+"let g:WhichKeyDesc_leader_se = "se Search Everywhere"
+nmap <leader>se <Action>(SearchEverywhere)
 
 " -- Move Tabs
 let g:WhichKeyDesc_mo = "mo Move Tab Opposite Group"
