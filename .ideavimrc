@@ -30,6 +30,7 @@ set number
 set relativenumber
 
 set surround (vim) " work with brackets
+"nnoremap <a-w> <c-w>
 
 " Which-key
 " let g:WhichKeyDesc_mc = "mc Desc"
@@ -122,7 +123,8 @@ nnoremap <tab> >>
 " nmap <leader>rn <Action>(RenameElement) Shift + F6
 
 " -- Go to
-let g:WhichKeyDesc_gd = "gd Go to Declaration"
+let g:WhichKeyDesc_windows_g = "g go to"
+let g:WhichKeyDesc_windows_gd = "gd Go to Declaration"
 nmap gd <Action>(GotoDeclaration)
 
 let g:WhichKeyDesc_gD = "gD Go to Type Declaration"
@@ -143,17 +145,21 @@ nmap gf <Action>(Forward)
 
 
 " --- Search
-"let g:WhichKeyDesc_leader_sf = "sf Search File"
+let g:WhichKeyDesc_windows_leader_s = "<leader>s Search"
+let g:WhichKeyDesc_windows_leader_sf = "<leader>sf File"
 nmap <leader>sf <Action>(GotoFile)
 
-"let g:WhichKeyDesc_leader_sa = "sg Live grep"
+let g:WhichKeyDesc_windows_leader_sg = "<leader>sg Live grep"
 nmap <leader>sg <Action>(FindInPath)
 
-"let g:WhichKeyDesc_leader_sa = "sa Search Action"
+let g:WhichKeyDesc_windows_leader_sa = "<leader>sa Action"
 nmap <leader>sa <Action>(GotoAction)
 
-"let g:WhichKeyDesc_leader_se = "se Search Everywhere"
+let g:WhichKeyDesc_windows_leader_se = "<leader>se  Everywhere"
 nmap <leader>se <Action>(SearchEverywhere)
+
+let g:WhichKeyDesc_leader_st = "<leader>st TODO"
+nmap <leader>st <Action>(ActivateTODOToolWindow)
 
 " -- Move Tabs
 let g:WhichKeyDesc_mo = "mo Move Tab Opposite Group"
@@ -183,13 +189,12 @@ nmap qd <Action>(QuickJavaDoc)
 let g:WhichKeyDesc_qp = "qp Parameter Info"
 nmap qp <Action>(ParameterInfo)
 
-" -- todo window
-"let g:WhichKeyDesc_leader_to = "to TODO Window"
-nmap <leader>to <Action>(ActivateTODOToolWindow)
 
 "-- configure keymaps
 "let g:WhichKeyDesc_leader_km = "km Change Keymap Window"
 nmap <leader>km <Action>(ChangeKeymap)
+
+nnoremap <s-c-v> <c-v> " Block Visual
 
 " -- SHORTCUTS used by VIM instead of IDEA -- "
 " Ctrl+;
