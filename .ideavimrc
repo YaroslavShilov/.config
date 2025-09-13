@@ -49,7 +49,7 @@ let g:WhichKey_ShowVimActions = "false"
 let g:WhichKeyDesc_m = "m  Multi cursor"
 
 " -- take alt + j
-let g:WhichKeyDesc_mc = "mc  Select Next Occurrence"
+let g:WhichKeyDesc_mc = "mc Select Next Occurrence <A-j>"
 nmap mc <Plug>NextWholeOccurrence
 xmap mc <Plug>NextWholeOccurrence
 
@@ -58,11 +58,11 @@ let g:WhichKeyDesc_mx = "mx Next Occurrence"
 xmap mx <Plug>SkipOccurrence
 
 " -- prev selected  alt + shift + j
-let g:WhichKeyDesc_mp = "mp  Previous Selected Occurrence"
+let g:WhichKeyDesc_mp = "mp  Previous Selected Occurrence <S-A-j>"
 xmap mp <Plug>RemoveOccurrence
 
 " -- select all " shift + ctrl + alt + j
-let g:WhichKeyDesc_ma = "ma Select All Occurrences"
+let g:WhichKeyDesc_ma = "ma Select All Occurrences  <S-C-A-j>"
 nmap ma <Action>(SelectAllOccurrences)
 vmap ma <Action>(SelectAllOccurrences)
 
@@ -116,6 +116,7 @@ nmap <leader>co <Action>(UnsplitAll)<Action>(CloseAllEditorsButActive)
 let g:WhichKeyDesc_leader_m = "<leader>m  Move Tab"
 let g:WhichKeyDesc_leader_mo = "<leader>mo  Move Tab Opposite Group"
 nmap <leader>mo <Action>(MoveEditorToOppositeTabGroup)
+nmap <A-w>o <Action>(MoveEditorToOppositeTabGroup)
 
 let g:WhichKeyDesc_leader_ml = "<leader>ml  Move Tab Left"
 nmap <leader>ml :tabm-1 <CR>
@@ -125,31 +126,34 @@ nmap <leader>mr :tabm+1 <CR>
 
 let g:WhichKeyDesc_leader_m/ = "<leader>m/  Split Vertical"
 nmap <leader>m/ <Action>(MoveTabRight)
+nmap <A-w>/ <Action>(MoveTabRight)
 
 let g:WhichKeyDesc_leader_m- = "<leader>m- Split Horizontal"
 nmap <leader>m- <Action>(MoveTabDown)
+nmap <A-w>- <Action>(MoveTabDown)
 
 let g:WhichKeyDesc_leader_m= = "<leader>m=  Unsplit All"
 nmap <leader>m= <Action>(UnsplitAll)
+nmap <A-w>= <Action>(UnsplitAll)
 
 
 " ---
 " --- Goto
 " ---
 let g:WhichKeyDesc_windows_g = "g go to"
-let g:WhichKeyDesc_windows_gd = "gd Go to Declaration"
+let g:WhichKeyDesc_windows_gd = "gd Go to Declaration <C-b>"
 nmap gd <Action>(GotoDeclaration)
 
-let g:WhichKeyDesc_gD = "gD Go to Type Declaration"
+let g:WhichKeyDesc_gD = "gD Go to Type Declaration <C-S-b>"
 nmap gD <Action>(GotoTypeDeclaration)
 
-let g:WhichKeyDesc_gi = "gi Go to Implementation"
+let g:WhichKeyDesc_gi = "gi Go to Implementation <C-A-b>"
 nmap gi <Action>(GotoImplementation)
 
-let g:WhichKeyDesc_gb = "gb Go Back"
+let g:WhichKeyDesc_gb = "gb Go Back  <C-A-left>"
 nmap gb <Action>(Back)
 
-let g:WhichKeyDesc_gf = "gf Go Forward"
+let g:WhichKeyDesc_gf = "gf Go Forward <C-A-right>"
 nmap gf <Action>(Forward)
 
 
@@ -157,16 +161,16 @@ nmap gf <Action>(Forward)
 " --- Quick Info
 " ---
 let g:WhichKeyDesc_windows_q = "q Quick Info"
-let g:WhichKeyDesc_qc = "qc Context Info"
+let g:WhichKeyDesc_qc = "qc Context Info <A-q>"
 nmap qc <Action>(EditorContextInfo)
 
-let g:WhichKeyDesc_qe = "qe Error Description"
+let g:WhichKeyDesc_qe = "qe Error Description  <C-f1>"
 nmap qe <Action>(ShowErrorDescription)
 
-let g:WhichKeyDesc_qd = "qd Documentation"
+let g:WhichKeyDesc_qd = "qd Documentation <C-q>"
 nmap qd <Action>(QuickJavaDoc)
 
-let g:WhichKeyDesc_qp = "qp Parameter Info"
+let g:WhichKeyDesc_qp = "qp Parameter Info <C-p>"
 nmap qp <Action>(ParameterInfo)
 
 
@@ -174,29 +178,30 @@ nmap qp <Action>(ParameterInfo)
 " --- Search
 " ---
 let g:WhichKeyDesc_windows_leader_s = "<leader>s Search"
-let g:WhichKeyDesc_windows_leader_sf = "<leader>sf File"
+let g:WhichKeyDesc_windows_leader_sf = "<leader>sf File <S-C-n>"
 nmap <leader>sf <Action>(GotoFile)
 
 " I use <S-C-f> much more
-let g:WhichKeyDesc_windows_leader_sg = "<leader>sg Live grep"
+let g:WhichKeyDesc_windows_leader_sg = "<leader>sg Live grep <S-C-f>"
 nmap <leader>sg <Action>(FindInPath)
 
-let g:WhichKeyDesc_windows_leader_sa = "<leader>sa Action"
+let g:WhichKeyDesc_windows_leader_sa = "<leader>sa Action <S-C-a>"
 nmap <leader>sa <Action>(GotoAction)
 
-let g:WhichKeyDesc_windows_leader_se = "<leader>se  Everywhere"
+let g:WhichKeyDesc_windows_leader_se = "<leader>se Everywhere <double S>"
 nmap <leader>se <Action>(SearchEverywhere)
 
 let g:WhichKeyDesc_leader_st = "<leader>st TODO"
 nmap <leader>st <Action>(ActivateTODOToolWindow)
 
-"Alt + 3
-let g:WhichKeyDesc_leader_sl = "<leader>sl List <a-3>"
+let g:WhichKeyDesc_leader_sl = "<leader>sl List  <A-3>"
 nmap <leader>sl <Action>(ActivateFindToolWindow)
 
-"Alt + 6
-let g:WhichKeyDesc_leader_sp = "<leader>sp Problem <a-6>"
+let g:WhichKeyDesc_leader_sp = "<leader>sp Problems <A-6>"
 nmap <leader>sp <Action>(ActivateProblemsViewToolWindow)
+
+let g:WhichKeyDesc_leader_sb = "<leader>sb Bookmarks <A-2>"
+nmap <leader>sb <Action>(ActivateBookmarksToolWindow)
 
 " ---
 " --- Other
