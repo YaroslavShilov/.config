@@ -1,7 +1,3 @@
-let mapleader = "\<space>"
-
-":noh - stop the highlighting
-
 "" Source your .vimrc
 "source ~/.vimrc
 
@@ -15,114 +11,131 @@ let mapleader = "\<space>"
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
-
 " Find more examples here: https://jb.gg/share-ideavimrc
 
+let mapleader = "\<space>"
+":noh - stop the highlighting
 
-" NerdTree"
+" NerdTree
 Plug 'preservim/nerdtree'
 
-" Do incremental searching.
+" Multiple Cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" Start searching as soon as you type / or ?, updating results instantly without waiting for <CR>
 set incsearch
 
-" Show numbers and relative numbers from your cursor
 set number
 set relativenumber
-
 set surround (vim) " work with brackets
-"nnoremap <a-w> <c-w>
+
+" Easy motion plugin
+" Plug 'on/vim-easymotion'
+" ctrl + ; + findName"
+set easymotion
 
 " Which-key
 " let g:WhichKeyDesc_mc = "mc Desc"
 " let g:WhichKeyDesc_ctrl_x_mc = "<C-x>mc Desc"
-"leader doesn't work
 " let g:WhichKeyDesc_leader_mc = "<leader>mc Desc"
 set which-key
 set timeoutlen=100000
 let g:WhichKey_ShowVimActions = "false"
 
 
-
-" Multiple Cursors
-Plug 'terryma/vim-multiple-cursors'
+" ---
+" --- Multi cursor
+" ---
+let g:WhichKeyDesc_m = "m  Multi cursor"
 
 " -- take alt + j
-"nmap mc <A-n>
-let g:WhichKeyDesc_mc = "mc Select Next Occurrence"
-"nmap mc <Action>(SelectNextOccurrence) //doesn't go to the beginning of the document
-"vmap mc <Action>(SelectNextOccurrence)
+let g:WhichKeyDesc_mc = "mc  Select Next Occurrence"
 nmap mc <Plug>NextWholeOccurrence
 xmap mc <Plug>NextWholeOccurrence
 
-
 " -- skip F3
-"nmap mx <A-x>
 let g:WhichKeyDesc_mx = "mx Next Occurrence"
-"nmap mx <Action>(FindNext)
-"vmap mx <Action>(FindNext)
 xmap mx <Plug>SkipOccurrence
 
-" -- prev unselected Shift + F3
-"nmap ???
-"let g:WhichKeyDesc_mu = "mu Previous Unselected Occurrence"
-"nmap mu <Action>(FindPrevious)
-"vmap mu <Action>(FindPrevious)
-
 " -- prev selected  alt + shift + j
-"nmap mp <A-p>
-let g:WhichKeyDesc_mp = "mp Previous Selected Occurrence"
-"nmap mp <Action>(UnselectPreviousOccurrence)
-"vmap mp <Action>(UnselectPreviousOccurrence)
+let g:WhichKeyDesc_mp = "mp  Previous Selected Occurrence"
 xmap mp <Plug>RemoveOccurrence
 
 " -- select all " shift + ctrl + alt + j
-"nmap ???
 let g:WhichKeyDesc_ma = "ma Select All Occurrences"
 nmap ma <Action>(SelectAllOccurrences)
 vmap ma <Action>(SelectAllOccurrences)
 
-" Easy motion plugin
-" Plug 'easymotion/vim-easymotion'
-" ctrl + ; + findName"
-set easymotion
 
-
-" Don't use Ex mode, use Q for formatting.
-map Q gq
-
-" ---- Mapping ---
-"i - insert mode
-"n - normal mode
-" jj - get out of insert mode
-" inoremap jj <Esc>
-
-" -- Save cursor position before entering visual mode
-" -- use double ` to go back
-nnoremap v m`v
-vnoremap v m`v
-nnoremap V m`V
-vnoremap V m`V
+" ---
+" --- Scrolling
+" ---
+set scroll=15 "Doesn't work in v mode
+set scrolloff=10 "Minimal number of lines above and below the cursor
 
 " -- page 1/2 up / down using alt + u / d
 nnoremap <a-d> <c-d>
 nnoremap <a-u> <c-u>
-" -- Use it for v mode
 vmap <a-d> 10j
 vmap <a-u> 10k
-set scroll=15 "Doesn't work in v mode
-set scrolloff=10 "Minimal number of lines above and below the cursor
+
+
+" ---
+" --- Windows / Tabs
+" ---
 
 " -- switch between windows
 nnoremap <a-w> <c-w>
 
-" add tabs and remove tabs by <tab> and <shift + tab>
-vnoremap <tab> >gv
-nnoremap <tab> >>
+" ---
+" --- Close Windows / Tabs
+" ---
+let g:WhichKeyDesc_leader_c = "<leader>c Close"
 
-" -- Code Edit
-" nmap <leader>rn <Action>(RenameElement) Shift + F6
+let g:WhichKeyDesc_leader_cu = "<leader>cu  Undo / Reopen Closed"
+nmap <leader>cu <Action>(ReopenClosedTab)
 
-" -- Go to
+let g:WhichKeyDesc_leader_cr = "<leader>cr  To the Right"
+nmap <leader>cl <Action>(CloseAllToTheLeft)
+
+let g:WhichKeyDesc_leader_cl = "<leader>cl  To the Left"
+nmap <leader>cr <Action>(CloseAllToTheRight)
+
+let g:WhichKeyDesc_leader_cg = "<leader>cg  Group"
+nmap <leader>cg <Action>(CloseAllEditors)
+
+let g:WhichKeyDesc_leader_ci = "<leader>ci Other in Group"
+nmap <leader>ci <Action>(CloseAllEditorsButActive)
+
+let g:WhichKeyDesc_leader_co = "<leader>co Other"
+nmap <leader>co <Action>(UnsplitAll)<Action>(CloseAllEditorsButActive)
+
+" ---
+" --- Move Tab
+" ---
+let g:WhichKeyDesc_leader_m = "<leader>m  Move Tab"
+let g:WhichKeyDesc_leader_mo = "<leader>mo  Move Tab Opposite Group"
+nmap <leader>mo <Action>(MoveEditorToOppositeTabGroup)
+
+let g:WhichKeyDesc_leader_ml = "<leader>ml  Move Tab Left"
+nmap <leader>ml :tabm-1 <CR>
+
+let g:WhichKeyDesc_leader_mr = "<leader>mr  Move Tab Right"
+nmap <leader>mr :tabm+1 <CR>
+
+let g:WhichKeyDesc_leader_m/ = "<leader>m/  Split Vertical"
+nmap <leader>m/ <Action>(MoveTabRight)
+
+let g:WhichKeyDesc_leader_m- = "<leader>m- Split Horizontal"
+nmap <leader>m- <Action>(MoveTabDown)
+
+let g:WhichKeyDesc_leader_m= = "<leader>m=  Unsplit All"
+nmap <leader>m= <Action>(UnsplitAll)
+
+
+" ---
+" --- Goto
+" ---
 let g:WhichKeyDesc_windows_g = "g go to"
 let g:WhichKeyDesc_windows_gd = "gd Go to Declaration"
 nmap gd <Action>(GotoDeclaration)
@@ -139,44 +152,11 @@ nmap gb <Action>(Back)
 let g:WhichKeyDesc_gf = "gf Go Forward"
 nmap gf <Action>(Forward)
 
-" -- Error
-"nmap <leader>e <Action>(GotoNextError) " F2
-"nmap <leader>E <Action>(GotoPreviousError) " Shift + F2
 
-
-" --- Search
-let g:WhichKeyDesc_windows_leader_s = "<leader>s Search"
-let g:WhichKeyDesc_windows_leader_sf = "<leader>sf File"
-nmap <leader>sf <Action>(GotoFile)
-
-let g:WhichKeyDesc_windows_leader_sg = "<leader>sg Live grep"
-nmap <leader>sg <Action>(FindInPath)
-
-let g:WhichKeyDesc_windows_leader_sa = "<leader>sa Action"
-nmap <leader>sa <Action>(GotoAction)
-
-let g:WhichKeyDesc_windows_leader_se = "<leader>se  Everywhere"
-nmap <leader>se <Action>(SearchEverywhere)
-
-let g:WhichKeyDesc_leader_st = "<leader>st TODO"
-nmap <leader>st <Action>(ActivateTODOToolWindow)
-
-" -- Move Tabs
-let g:WhichKeyDesc_mo = "mo Move Tab Opposite Group"
-nmap <leader>mo <Action>(MoveEditorToOppositeTabGroup)
-
-let g:WhichKeyDesc_ml = "ml Move Tab Left"
-nmap <leader>ml :tabm-1 <CR>
-
-
-let g:WhichKeyDesc_mr = "mr Move Tab Right"
-nmap <leader>mr :tabm+1 <CR>
-
-"let g:WhichKeyDesc_leader_rc = "<leader>rc Reopen Closed Tab"
-nmap <leader>rc <Action>(ReopenClosedTab)
-
-
+" ---
 " --- Quick Info
+" ---
+let g:WhichKeyDesc_windows_q = "q Quick Info"
 let g:WhichKeyDesc_qc = "qc Context Info"
 nmap qc <Action>(EditorContextInfo)
 
@@ -190,13 +170,66 @@ let g:WhichKeyDesc_qp = "qp Parameter Info"
 nmap qp <Action>(ParameterInfo)
 
 
-"-- configure keymaps
-"let g:WhichKeyDesc_leader_km = "km Change Keymap Window"
+" ---
+" --- Search
+" ---
+let g:WhichKeyDesc_windows_leader_s = "<leader>s Search"
+let g:WhichKeyDesc_windows_leader_sf = "<leader>sf File"
+nmap <leader>sf <Action>(GotoFile)
+
+" I use <S-C-f> much more
+let g:WhichKeyDesc_windows_leader_sg = "<leader>sg Live grep"
+nmap <leader>sg <Action>(FindInPath)
+
+let g:WhichKeyDesc_windows_leader_sa = "<leader>sa Action"
+nmap <leader>sa <Action>(GotoAction)
+
+let g:WhichKeyDesc_windows_leader_se = "<leader>se  Everywhere"
+nmap <leader>se <Action>(SearchEverywhere)
+
+let g:WhichKeyDesc_leader_st = "<leader>st TODO"
+nmap <leader>st <Action>(ActivateTODOToolWindow)
+
+"Alt + 3
+let g:WhichKeyDesc_leader_sl = "<leader>sl List <a-3>"
+nmap <leader>sl <Action>(ActivateFindToolWindow)
+
+"Alt + 6
+let g:WhichKeyDesc_leader_sp = "<leader>sp Problem <a-6>"
+nmap <leader>sp <Action>(ActivateProblemsViewToolWindow)
+
+" ---
+" --- Other
+" ---
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" -- Save cursor position before entering visual mode
+" -- use double ` to go back
+nnoremap v m`v
+vnoremap v m`v
+nnoremap V m`V
+vnoremap V m`V
+
+" add tabs and remove tabs by <tab> and <shift + tab>
+vnoremap <tab> >gv
+nnoremap <tab> >>
+
+" -- Error
+"nmap <leader>e <Action>(GotoNextError) " F2
+"nmap <leader>E <Action>(GotoPreviousError) " Shift + F2
+
+"-- configure ks
+let g:WhichKeyDesc_windows_leader_k = "<leader>k Key"
+let g:WhichKeyDesc_windows_leader_km = "<leader>km  Keymap"
 nmap <leader>km <Action>(ChangeKeymap)
 
-nnoremap <s-c-v> <c-v> " Block Visual
+" Block Visual
+nnoremap <S-C-v> <C-v>
 
 " -- SHORTCUTS used by VIM instead of IDEA -- "
 " Ctrl+;
 " Ctrl+Shift+;
 " Alt+D
+" Ctrl+Shift+V
